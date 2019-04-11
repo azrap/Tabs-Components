@@ -1,17 +1,25 @@
 
 class TabLink {
-  constructor(tabsLink) {
+  constructor(DOMelement) {
     // Assign this.element to the passed in DOM element
-    // this.tabsLink;
-    this.tabsLink=tabsLink;
+    // this.element;
+    this.element=DOMelement;
     
- 
-    // matching the tabsItem i.e the content inside the tabs to the tabs link below. Recall in CSS we say data-tab which is the same as saying dataset.tab in JS so dat-tab~=dataset.tab:
+    // Get the custom data attribute on the Link
+    // this.data;
+    //this.data=document.querySelector(`.tabs-item[data-tab='${this.element.dataset.tab}']`)
     
-    this.tabsItem= document.querySelector(`.tabs-items[data-tab='${this.tabsLink.dataset.tab}']`) 
+    // Using the custom data attribute get the associated Item element
+    // this.itemElement;
+
+    this.itemElement=document.querySelector(`.tabs-item[data-tab='${this.element.dataset.tab}']`)
+    
+    // Using the Item element, create a new instance of the TabItem class
+    // this.tabItem;
+
+    this.tabItem= new 
     
     // Add a click event listener on this instance, calling the select method on click
-
 
   };
 
