@@ -6,7 +6,7 @@ class Dropdown {
    
     this.button = this.element.querySelector(".dropdown-button");
     
-    this.content = JSelement.querySelector('.dropdown-content');
+    this.content = this.element.querySelector('.dropdown-content');
 
     
     // Add a click handler to the button reference and call the toggleContent method.

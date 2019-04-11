@@ -6,18 +6,27 @@ class TabLink {
     this.tabsLink=tabsLink;
  
     // matching the tabsItem i.e the content inside the tabs to the tabs link below. Recall in CSS we say data-tab which is the same as saying dataset.tab in JS so dat-tab~=dataset.tab:
+//itemElement= tabs item
+//element =
 
-    this.tabsItem= document.querySelector(`.tabs-items[data-tab='${this.tabsLink.dataset.tab}']`) 
+  this.data=this.tabsLink.dataset.tab;
+
+    this.itemElement= document.querySelector(`.tabs-items[data-tab='${this.data}']`) 
 
     //with the above ^^ line of code, we should have matched our tabs content with our tabs link.
 
     //BELOW: we create tabsItem objects our 
 
-    this.tabsItem= new tabsItem(this.tabsItem);
+    this.tabItem= new TabItem(this.itemElement);
     
+
+    //
 
     
     // Add a click event listener on this instance, calling the select method on click
+
+    this.tabsLink.addEventListener( 'click', () => {this.select()
+    })
 
 
   };
@@ -26,48 +35,54 @@ class TabLink {
 
   select() {
     // Get all of the elements with the tabs-link class
-    // const links;
+     const links=document.querySelectorAll(".tabs-link");
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
-    // Array.from(links).forEach();
+    Array.from(links).forEach( link => {link.classList.remove("tabs-links-selected")
+  
+  });
+
 
     // Add a class named "tabs-link-selected" to this link
     // this.element;
+
+    this.tabsLink.classList.add("tabs-link-selected")
     
     // Call the select method on the item associated with this link
 
-    this.content
-
+    this.tabItem.select();
+   
   }
 }
 
 // creating the TabsItem class i.e. the class for the content inside the tabs below:
 
 class TabItem {
-  constructor(tabsItem) {
+  constructor(element) {
+    // Assign this.element to the passed in element
+    // this.element;
+    this.element=element;
 
-    this.tabsItem=tabsItem;
-    
-  
   }
 
-//methods:
   select() {
 
-    this.tabsItem.classList.toggle('tabs-item-selected');
-
-
-
-
     // Select all ".tabs-item" elements from the DOM
-    // const items;
+    const items=document.querySelectorAll(".tabs-item");
 
     // Remove the class "tabs-item-selected" from each element
-    
+
+    items.forEach( item => {item.classList.remove("tabs-item-selected")
+  
+  })    
     // Add a class named "tabs-item-selected" to this element
     //this.element;
+    this.element.classList.add("tabs-item-selected");
   }
 }
+
+
+
 
 
 
