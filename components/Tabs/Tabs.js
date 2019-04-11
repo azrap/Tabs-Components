@@ -4,16 +4,25 @@ class TabLink {
     // Assign this.element to the passed in DOM element
     // this.tabsLink;
     this.tabsLink=tabsLink;
-    
  
     // matching the tabsItem i.e the content inside the tabs to the tabs link below. Recall in CSS we say data-tab which is the same as saying dataset.tab in JS so dat-tab~=dataset.tab:
-    
+
     this.tabsItem= document.querySelector(`.tabs-items[data-tab='${this.tabsLink.dataset.tab}']`) 
+
+    //with the above ^^ line of code, we should have matched our tabs content with our tabs link.
+
+    //BELOW: we create tabsItem objects our 
+
+    this.tabsItem= new tabsItem(this.tabsItem);
+    
+
     
     // Add a click event listener on this instance, calling the select method on click
 
 
   };
+
+  //methods:
 
   select() {
     // Get all of the elements with the tabs-link class
@@ -30,13 +39,24 @@ class TabLink {
   }
 }
 
+// creating the TabsItem class i.e. the class for the content inside the tabs below:
+
 class TabItem {
-  constructor(element) {
-    // Assign this.element to the passed in element
-    // this.element;
+  constructor(tabsItem) {
+
+    this.tabsItem=tabsItem;
+    
+  
   }
 
+//methods:
   select() {
+
+    this.tabsItem.classList.toggle('tabs-item-selected');
+
+
+
+
     // Select all ".tabs-item" elements from the DOM
     // const items;
 
@@ -46,6 +66,11 @@ class TabItem {
     //this.element;
   }
 }
+
+
+
+
+
 
 /* START HERE: 
 
