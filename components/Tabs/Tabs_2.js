@@ -17,7 +17,7 @@ class TabLink {
     // Using the Item element, create a new instance of the TabItem class
     // this.tabItem;
 
-    this.tabItem= new TabItem(this.itemElement);
+    this.tabItem= new TabItem(itemElement);
 
     
     // Add a click event listener on this instance, calling the select method on click
